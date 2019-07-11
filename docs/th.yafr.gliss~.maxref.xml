@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name="th.yafr.gliss~">
+
+	<digest>
+		Modified yafr2 with glissando effect
+	</digest>
+
+	<description>
+		A modification on the classic yafr2 by Randy Jones. The abstraction gives simplified acces to a quick reverb by adding the attributes @preset and @wet on instantiation of the object. These can also be set with messages. All parameters can be changed on the inlet and range from 0 - 1 (but are not bound to that value, roomsize and decay can be larger). Parameters can also be set as a list with the params argument. An additional time domain pitchshift effect is included in the delay-feedback to create a glissando effect.
+	</description>
+
+	<!--METADATA-->
+	<metadatalist>
+		<metadata name="author">Timo Hoogland</metadata>
+		<metadata name="tag">thModules</metadata>
+		<metadata name="tag">max</metadata>
+		<metadata name="tag">msp</metadata>
+		<metadata name="tag">reverb</metadata>
+		<metadata name="tag">yafr</metadata>
+	</metadatalist>
+
+	<!--INLETS-->
+	<!-- <inletlist>
+		<inlet id="0" type="float">
+			<digest></digest>
+		</inlet>
+		<inlet id="1" type="float">
+			<digest></digest>
+		</inlet>
+	</inletlist> -->
+
+	<!--OUTLETS-->
+	<!-- <outletlist>
+		<outlet id="0" type="int/float">
+			<digest></digest>
+			<description></description>
+		</outlet>
+	</outletlist> -->
+
+	<!--ARGUMENTS-->
+	<!-- <objarglist>
+		<objarg name="" optional="1" type="string">
+			<digest>
+			</digest>
+			<description>
+			</description>
+		</objarg>
+	</objarglist> -->
+
+	<!--MESSAGES-->
+	<methodlist>
+		<method name="signal">
+			<arglist>
+				<arg name="signal" optional="0" type="signal" />
+			</arglist>
+			<digest>
+				Function depends on inlet.
+			</digest>
+			<description>
+				inlet 1: The left input of the stereo signal.
+				<br />
+				<br />
+				inlet 2: The right input of the stereo signal.
+				<br />
+				<br />
+				inlet 3: Set the roomsize. Classic yafr2 between 0 - 1. Higher values result in bigger delays.
+				<br />
+				<br />
+				inlet 4: Set the decaytime. Classic yafr2 between 0 - 1. Higher values result in positive feedback with softclipping to reduce gain.
+				<br />
+				<br />
+				inlet 5: Set the damping. Values between 0 - 1 result in 100 - 15000 Hz with a logarithmic scaling.
+				<br />
+				<br />
+				inlet 6: Set the diffusion. Values between 0 - 1.
+				<br />
+				<br />
+				inlet 7: Set the gain for the early reflections. Values betewen 0 - 1.
+				<br />
+				<br />
+				inlet 8: Set the pitch shift ratio for shifting the reverb in the time-domain.
+			</description>
+		</method>
+
+		<method name="float">
+			<arglist>
+				<arg name="float" optional="0" type="float" />
+			</arglist>
+			<digest>
+				Function depends on inlet.
+			</digest>
+			<description>
+				inlet 3: Set the roomsize. Classic yafr2 between 0 - 1. Higher values result in bigger delays.
+				<br />
+				<br />
+				inlet 4: Set the decaytime. Classic yafr2 between 0 - 1. Higher values result in positive feedback with softclipping to reduce gain.
+				<br />
+				<br />
+				inlet 5: Set the damping. Values between 0 - 1 result in 100 - 15000 Hz with a logarithmic scaling.
+				<br />
+				<br />
+				inlet 6: Set the diffusion. Values between 0 - 1.
+				<br />
+				<br />
+				inlet 7: Set the gain for the early reflections. Values between 0 - 1.
+			</description>
+		</method>
+
+		<method name="params">
+			<arglist>
+				<arg name="list" optional="0" type="list" />
+			</arglist>
+			<digest>
+				Set all the reverb parameters as a list on the first inlet.
+			</digest>
+			<description>
+				Set all the reverb parameters as a list on the first inlet.
+				<br />
+				<br />
+				Order of parameters in the list is: roomsize, decaytime, damping, diffusion, early-reflections gain.
+			</description>
+		</method>
+	</methodlist>
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+		<attribute name="wet" get='0' set='1' type='float' size='2' >
+			<digest>
+				The amount of reverb versus the amount of dry signal. (default = 1)
+			</digest>
+			<description>
+				The wet-dry ratio of the reverb. 1 = 100% wet, 0 = 0% wet. (default = 1)
+			</description>
+		</attribute>
+
+		<attribute name="preset" get='0' set='1' type='int' size='2' >
+			<digest>
+				Choose a preset from the predefined reverb parameters.
+			</digest>
+			<description>
+				Choose a preset from the predefined set of reverb parameters. 0 is a small room, and for every integer the parameters gradually increase. (default = 7)
+			</description>
+		</attribute>
+
+		<attribute name="slide" get='0' set='1' type='float' size='2' >
+			<digest>
+				Slide time in ms for linear smoothing between paramater changes (default = 10)
+			</digest>
+			<description>
+				Slide time in ms for linear smoothing between paramater changes (default = 10)
+			</description>
+		</attribute>
+
+		<attribute name="shift" get='0' set='1' type='float' size='2' >
+			<digest>
+				Shift ratio for the pitchshifter. (default = 1)
+			</digest>
+			<description>
+				The shift ratio for the pitchshifter build in the delay-network. A ratio of 1 = no shift. A ratio of 2 = shift up one octave. A ratio of 0.5 = shift down one octave. (default = 1)
+			</description>
+		</attribute>
+	</attributelist>
+
+
+	<!--SEEALSO-->
+	<seealsolist>
+		<seealso name="th.yafr~"/>
+		<seealso name="th.yafr.freeze~"/>
+		<seealso name="yafr2"/>
+	</seealsolist>
+
+</c74object>

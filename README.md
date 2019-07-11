@@ -35,6 +35,10 @@ Added presets for quick access of settings
 
 - FFT-freeze effect reverb with smoothing between frames
 
+## Sources
+
+- https://cycling74.com/tools/charles-spectral-tutorials - *fft freezer loosly inspired by spectral proccesing tutorials from Jean Francois Charles*
+
 ## Install
 
 ```

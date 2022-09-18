@@ -18,7 +18,7 @@ The yafr2 reverb may be the most used reverb in Max. It is great and I have used
 
 - **th.yafr.freeze~** - *Plate reverb in the style of Griesinger with fft-freeze effect*
 
-- **th.yarf.inf~** - *Plate reverb in the style of Griesinger with self-regulating feedback loop for infinite decay*
+- **th.yafr.inf~** - *Plate reverb in the style of Griesinger with self-regulating feedback loop for infinite decay*
 
 ## Features
 

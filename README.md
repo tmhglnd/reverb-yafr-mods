@@ -10,6 +10,8 @@
 
 The yafr2 reverb may be the most used reverb in Max. It is great and I have used it for many projects in the past. But sometimes it just misses a bit more control and ease-of-use. The original yafr2 reverb credit goes to Randy Jones. Modifications made to the reverbs are listed in the Features.
 
+![](./media/screenshot.png)
+
 ## Contains
 
 - **th.yafr~** - *Plate reverb in the style of Griesinger, positive feedback with softclipping*
